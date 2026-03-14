@@ -1,91 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
 <title>Physics Summit HIMASIKA</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#0c2a52,#c42026);
+font-family: 'Poppins', sans-serif;
+background:#0d1b3d;
 color:white;
-text-align:center;
+overflow-x:hidden;
 }
+
+/* NAVBAR */
 
 .navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 80px;
-background:rgba(255,255,255,0.1);
-}
-
-.navbar h2{
-margin:0;
+padding:20px 60px;
+background:rgba(0,0,0,0.3);
+position:fixed;
+width:100%;
+top:0;
 }
 
 .menu{
 display:flex;
-gap:30px;
+gap:40px;
+font-weight:500;
 }
 
+.menu a{
+text-decoration:none;
+color:white;
+}
+
+/* HERO */
+
 .hero{
-margin-top:120px;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
 }
 
 .hero h1{
 font-size:60px;
+margin:20px 0;
+letter-spacing:3px;
 }
 
 .hero p{
-font-size:20px;
-max-width:700px;
-margin:auto;
+max-width:600px;
+font-size:18px;
+opacity:0.8;
 }
+
+/* BUTTON */
 
 .button{
 margin-top:30px;
-padding:12px 30px;
-background:white;
-color:#c42026;
+padding:14px 40px;
+background:#ff4b5c;
 border:none;
-border-radius:10px;
+border-radius:30px;
 font-size:18px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.1);
+background:#ff1f3c;
+}
+
+/* ATOM */
+
+.atom{
+width:160px;
+animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+/* FLOAT PARTICLES */
+
+.particle{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+opacity:0.6;
+animation:float 10s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-100px)}
+100%{transform:translateY(0)}
+}
+
+/* ABOUT */
+
+.about{
+padding:120px 20%;
+text-align:center;
+background:#11265a;
+}
+
+.about h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.about p{
+line-height:1.8;
+opacity:0.9;
 }
 
 </style>
-
 </head>
 
+
 <body>
+
+<!-- NAVBAR -->
 
 <div class="navbar">
 
 <h2>Physics Summit</h2>
 
 <div class="menu">
-<div>Tentang</div>
-<div>Kompetisi</div>
-<div>Guidebook</div>
+<a href="#">Home</a>
+<a href="#">Tentang</a>
+<a href="#">Timeline</a>
+<a href="#">Guidebook</a>
 </div>
 
 </div>
 
+
+<!-- HERO -->
 
 <div class="hero">
 
-<h1>11th Physics Summit</h1>
+<img class="atom" src="https://cdn-icons-png.flaticon.com/512/2942/2942813.png">
+
+<h1>11TH PHYSICS SUMMIT</h1>
 
 <p>
-Physics Summit merupakan event tahunan yang diselenggarakan oleh 
-Himpunan Mahasiswa Fisika ITS (HIMASIKA ITS) yang bergerak dalam 
-bidang akademik dan manajerial.
+Physics Summit merupakan event tahunan yang diselenggarakan oleh
+Himpunan Mahasiswa Fisika ITS (HIMASIKA ITS) untuk mengembangkan
+potensi generasi muda di bidang fisika.
 </p>
 
-<button class="button">Mulai Jelajah</button>
+<button class="button">Register Now</button>
 
 </div>
 
+
+<!-- ABOUT -->
+
+<div class="about">
+
+<h2>What is Physics Summit?</h2>
+
+<p>
+Physics Summit adalah acara yang diselenggarakan oleh Departemen Fisika
+Institut Teknologi Sepuluh Nopember (ITS) melalui HIMASIKA ITS yang
+menggabungkan kegiatan akademik dan manajerial untuk memberikan
+kontribusi nyata kepada masyarakat luas.
+</p>
+
+</div>
+
+
+<!-- PARTICLES -->
+
+<div class="particle" style="top:20%; left:10%"></div>
+<div class="particle" style="top:40%; left:80%"></div>
+<div class="particle" style="top:70%; left:20%"></div>
+<div class="particle" style="top:60%; left:60%"></div>
+
 </body>
+
 </html>
