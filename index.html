@@ -5,25 +5,19 @@
 <meta charset="UTF-8">
 <title>Physics Summit</title>
 
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* COLOR */
-
-:root{
---pink:#F297A0;
---pinksoft:#F9D0CE;
---cream:#F3EBD8;
---green:#B6BB79;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-/* BODY */
-
 body{
-margin:0;
-font-family:Arial;
-background:var(--pinksoft);
+background:#F9D0CE;
 color:#333;
 }
 
@@ -33,30 +27,77 @@ color:#333;
 display:flex;
 justify-content:space-between;
 padding:20px 10%;
-background:var(--pink);
+background:#F297A0;
 color:white;
 position:sticky;
 top:0;
-z-index:10;
+z-index:100;
 }
 
 .navbar a{
 color:white;
 text-decoration:none;
-margin-left:25px;
+margin-left:20px;
 }
 
 /* HERO */
 
 .hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#F3EBD8;
 text-align:center;
-padding:120px 20px;
-background:var(--cream);
 }
 
 .hero h1{
-font-size:55px;
-color:var(--pink);
+font-size:60px;
+color:#F297A0;
+margin-bottom:20px;
+}
+
+/* ATOM ANIMATION */
+
+.atom{
+position:relative;
+width:150px;
+height:150px;
+margin-top:30px;
+}
+
+.orbit{
+position:absolute;
+border:2px solid #F297A0;
+border-radius:50%;
+width:100%;
+height:100%;
+animation:spin 8s linear infinite;
+}
+
+.orbit:nth-child(2){
+transform:rotate(60deg);
+}
+
+.orbit:nth-child(3){
+transform:rotate(120deg);
+}
+
+.nucleus{
+width:30px;
+height:30px;
+background:#F297A0;
+border-radius:50%;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
 }
 
 /* SECTION */
@@ -69,30 +110,38 @@ padding:80px 10%;
 text-align:center;
 font-size:36px;
 margin-bottom:40px;
-color:var(--pink);
+color:#F297A0;
 }
 
 /* ABOUT */
 
-.about-text{
-max-width:700px;
+.about{
+max-width:800px;
 margin:auto;
 text-align:center;
 line-height:1.7;
-margin-bottom:40px;
 }
 
-/* GALLERY */
+/* HISTORY */
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+.timeline{
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+justify-content:center;
 }
 
-.gallery img{
-width:100%;
+.timeline-card{
+background:white;
+padding:25px;
 border-radius:15px;
+width:200px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.timeline-card h3{
+color:#F297A0;
 }
 
 /* COMPETITION */
@@ -105,111 +154,77 @@ gap:40px;
 
 .comp-card{
 background:white;
+padding:30px;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
-overflow:hidden;
-transition:0.3s;
 }
 
-.comp-card:hover{
-transform:translateY(-6px);
-}
-
-.comp-card img{
-width:100%;
-}
-
-.comp-content{
-padding:25px;
-}
-
-.comp-title{
-font-size:22px;
-color:var(--pink);
+.comp-card h3{
+color:#F297A0;
 margin-bottom:10px;
 }
 
-/* BUTTON */
-
 .btn{
 display:inline-block;
+margin-top:10px;
 padding:10px 20px;
 border-radius:20px;
-text-decoration:none;
+background:#F297A0;
 color:white;
-background:var(--pink);
-margin-top:10px;
+text-decoration:none;
 }
 
-/* ACCORDION */
+/* GUIDEBOOK MODAL */
 
-.accordion{
-margin-top:20px;
-}
-
-.accordion-btn{
-background:var(--cream);
-border:none;
-width:100%;
-padding:12px;
-text-align:left;
-cursor:pointer;
-border-radius:10px;
-margin-top:10px;
-font-weight:bold;
-}
-
-.accordion-content{
+.modal{
 display:none;
-padding:10px 5px;
-}
-
-/* TIMELINE */
-
-.timeline{
-margin-top:15px;
-border-left:3px solid var(--pink);
-padding-left:15px;
-}
-
-.timeline-item{
-margin-bottom:12px;
-}
-
-.timeline-item span{
-font-weight:bold;
-color:var(--pink);
-}
-
-/* MERCH */
-
-.merch-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+justify-content:center;
 align-items:center;
 }
 
-.merch-container img{
-width:100%;
+.modal-content{
+background:white;
+padding:40px;
 border-radius:20px;
+text-align:center;
 }
 
-.btn-merch{
-background:var(--pink);
-color:white;
-padding:12px 25px;
-border-radius:25px;
-text-decoration:none;
-display:inline-block;
-margin-top:15px;
+.close{
+cursor:pointer;
+font-size:20px;
+float:right;
+}
+
+/* SPONSOR */
+
+.sponsor-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+align-items:center;
+}
+
+.sponsor-grid img{
+width:100%;
+filter:grayscale(100%);
+transition:0.3s;
+}
+
+.sponsor-grid img:hover{
+filter:none;
 }
 
 /* CONTACT */
 
 .contact-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
@@ -223,7 +238,7 @@ box-shadow:0 8px 20px rgba(0,0,0,0.1);
 
 .btn-wa{
 display:inline-block;
-margin-top:15px;
+margin-top:10px;
 padding:10px 20px;
 background:#25D366;
 color:white;
@@ -241,12 +256,13 @@ border-radius:25px;
 
 <div class="navbar">
 
-<div><b>Physics Summit</b></div>
+<b>Physics Summit</b>
 
 <div>
 <a href="#about">About</a>
+<a href="#history">Perjalanan</a>
 <a href="#competition">Kompetisi</a>
-<a href="#merch">Merch</a>
+<a href="#sponsor">Sponsor</a>
 <a href="#contact">Contact</a>
 </div>
 
@@ -254,13 +270,22 @@ border-radius:25px;
 
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero">
 
 <h1>11th Physics Summit</h1>
 
-<p>Empowering the Future through Physics</p>
+<p>Empowering Future Through Physics</p>
+
+<div class="atom">
+
+<div class="orbit"></div>
+<div class="orbit"></div>
+<div class="orbit"></div>
+<div class="nucleus"></div>
 
 </div>
+
+</section>
 
 <!-- ABOUT -->
 
@@ -268,22 +293,57 @@ border-radius:25px;
 
 <h2 class="section-title">About Physics Summit</h2>
 
-<p class="about-text">
+<div class="about">
 
-Physics Summit merupakan event tahunan yang diselenggarakan oleh
+Physics Summit merupakan big event yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-Event ini menjadi wadah bagi siswa dan mahasiswa dari seluruh
-Indonesia untuk mengembangkan kemampuan akademik, kreativitas,
-dan inovasi di bidang fisika.
 
-</p>
+Event ini memiliki dua kompetisi utama yaitu
+Physics Summit Olympiad (PSO) dan
+Physics Summit Essay Competition (PSEC),
+serta program Student Ambassador (SA).
 
-<div class="gallery">
+</div>
 
-<img src="dokumentasi1.jpg">
-<img src="dokumentasi2.jpg">
-<img src="dokumentasi3.jpg">
-<img src="dokumentasi4.jpg">
+</section>
+
+<!-- HISTORY -->
+
+<section class="section" id="history">
+
+<h2 class="section-title">Perjalanan Physics Summit</h2>
+
+<div class="timeline">
+
+<div class="timeline-card">
+<h3>2011</h3>
+<p>First Gebyar</p>
+</div>
+
+<div class="timeline-card">
+<h3>2014</h3>
+<p>Berganti nama menjadi Physics Summit</p>
+</div>
+
+<div class="timeline-card">
+<h3>2018</h3>
+<p>Penetapan Dirut PS</p>
+</div>
+
+<div class="timeline-card">
+<h3>2020</h3>
+<p>Vakum karena Covid</p>
+</div>
+
+<div class="timeline-card">
+<h3>2024</h3>
+<p>Mulai lagi</p>
+</div>
+
+<div class="timeline-card">
+<h3>2025</h3>
+<p>Physics Summit 10th</p>
+</div>
 
 </div>
 
@@ -297,145 +357,27 @@ dan inovasi di bidang fisika.
 
 <div class="comp-container">
 
-<!-- PSO -->
+<div class="comp-card">
+
+<h3>Physics Summit Olympiad (PSO)</h3>
+
+<p>
+Kompetisi olimpiade fisika tingkat nasional untuk siswa SMA/SMK sederajat.
+</p>
+
+<a class="btn" onclick="openModal()">Guidebook</a>
+
+</div>
 
 <div class="comp-card">
 
-<img src="poster-pso.jpg">
-
-<div class="comp-content">
-
-<div class="comp-title">Physics Summit Olympiad (PSO)</div>
+<h3>Physics Summit Essay Competition (PSEC)</h3>
 
 <p>
-Kompetisi olimpiade fisika nasional untuk siswa SMA/SMK sederajat
-yang bertujuan mengasah kemampuan analisis dan problem solving
-di bidang fisika.
+Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK.
 </p>
 
-<a class="btn" href="https://its.id/m/OprecPSO2025" target="_blank">
-Daftar PSO
-</a>
-
-<div class="accordion">
-
-<button class="accordion-btn">Syarat Peserta</button>
-
-<div class="accordion-content">
-
-<ul>
-<li>Siswa SMA/SMK/MA kelas X–XII</li>
-<li>Tim terdiri dari 2 orang</li>
-<li>Belum pernah menjadi pemenang OSN atau Physics Summit</li>
-</ul>
-
-</div>
-
-<button class="accordion-btn">Timeline</button>
-
-<div class="accordion-content">
-
-<div class="timeline">
-
-<div class="timeline-item">
-<span>7 Sept 2025</span> Roadshow
-</div>
-
-<div class="timeline-item">
-<span>1–18 Sept</span> Pendaftaran
-</div>
-
-<div class="timeline-item">
-<span>24 Sept</span> Try Out
-</div>
-
-<div class="timeline-item">
-<span>27 Sept</span> Penyisihan
-</div>
-
-<div class="timeline-item">
-<span>5 Okt</span> Semi Final
-</div>
-
-<div class="timeline-item">
-<span>26 Okt</span> Final
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- PSEC -->
-
-<div class="comp-card">
-
-<img src="poster-psec.jpg">
-
-<div class="comp-content">
-
-<div class="comp-title">Physics Summit Essay Competition (PSEC)</div>
-
-<p>
-
-Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK
-yang berfokus pada inovasi berbasis ilmu fisika untuk Society 5.0.
-
-</p>
-
-<a class="btn" href="#" target="_blank">
-Daftar PSEC
-</a>
-
-<div class="accordion">
-
-<button class="accordion-btn">Tema</button>
-
-<div class="accordion-content">
-
-Empowering the Future through Physics:
-Smart Innovations for a Sustainable Society 5.0
-
-</div>
-
-<button class="accordion-btn">Timeline</button>
-
-<div class="accordion-content">
-
-<div class="timeline">
-
-<div class="timeline-item">
-<span>1–15 Sept</span> Abstrak
-</div>
-
-<div class="timeline-item">
-<span>17 Sept</span> Pengumuman
-</div>
-
-<div class="timeline-item">
-<span>18–9 Okt</span> Full Paper
-</div>
-
-<div class="timeline-item">
-<span>18 Okt</span> Finalis
-</div>
-
-<div class="timeline-item">
-<span>26 Okt</span> Presentasi
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<a class="btn" onclick="openModal()">Guidebook</a>
 
 </div>
 
@@ -443,35 +385,38 @@ Smart Innovations for a Sustainable Society 5.0
 
 </section>
 
-<!-- MERCH -->
+<!-- MODAL -->
 
-<section class="section" id="merch">
+<div class="modal" id="guidebookModal">
 
-<h2 class="section-title">Merchandise</h2>
+<div class="modal-content">
 
-<div class="merch-container">
+<span class="close" onclick="closeModal()">×</span>
 
-<img src="merch.jpg">
+<h3>Download Guidebook</h3>
 
-<div>
+<p>Pilih guidebook kompetisi:</p>
 
-<p>
-
-Physics Summit menyediakan berbagai merchandise eksklusif
-seperti gantungan kunci, keystrap, mug, pin, kipas, dan
-produk menarik lainnya.
-
-</p>
-
-<a href="https://its.id/m/PreOrderMerchPhysicsSummit2025"
-class="btn-merch"
-target="_blank">
-
-Pre Order Merchandise
-
-</a>
+<a class="btn" href="#">Guidebook PSO</a>
+<a class="btn" href="#">Guidebook PSEC</a>
 
 </div>
+
+</div>
+
+<!-- SPONSOR -->
+
+<section class="section" id="sponsor">
+
+<h2 class="section-title">Sponsor & Media Partner</h2>
+
+<div class="sponsor-grid">
+
+<img src="logo1.png">
+<img src="logo2.png">
+<img src="logo3.png">
+<img src="logo4.png">
+<img src="logo5.png">
 
 </div>
 
@@ -487,32 +432,22 @@ Pre Order Merchandise
 
 <div class="contact-card">
 
-<h3>Contact Umum</h3>
+<h3>PSO</h3>
+<p>Rozan</p>
 
-<p>Sandy</p>
-
-<a class="btn-wa"
-href="https://wa.me/6281977966611"
-target="_blank">
-
-Chat Sandy
-
+<a class="btn-wa" href="https://wa.me/6282334827208">
+Chat Rozan
 </a>
 
 </div>
 
 <div class="contact-card">
 
-<h3>PSO</h3>
+<h3>PSEC</h3>
+<p>Wahid</p>
 
-<p>Rozan</p>
-
-<a class="btn-wa"
-href="https://wa.me/6282334827208"
-target="_blank">
-
-Chat Rozan
-
+<a class="btn-wa" href="#">
+Chat Wahid
 </a>
 
 </div>
@@ -523,26 +458,12 @@ Chat Rozan
 
 <script>
 
-/* ACCORDION */
-
-var acc=document.getElementsByClassName("accordion-btn");
-
-for(i=0;i<acc.length;i++){
-
-acc[i].addEventListener("click",function(){
-
-this.classList.toggle("active");
-
-var panel=this.nextElementSibling;
-
-if(panel.style.display==="block"){
-panel.style.display="none";
-}else{
-panel.style.display="block";
+function openModal(){
+document.getElementById("guidebookModal").style.display="flex";
 }
 
-});
-
+function closeModal(){
+document.getElementById("guidebookModal").style.display="none";
 }
 
 </script>
