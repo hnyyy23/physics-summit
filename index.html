@@ -2,13 +2,19 @@
 
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <title>Physics Summit ITS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* PALETTE
+Primrose Garden #F297A0
+Pinktone #F9D0CE
+Lime Lollipop #B6BB79
+Yucca White #F3EBD8
+*/
 
 *{
 margin:0;
@@ -17,30 +23,51 @@ box-sizing:border-box;
 font-family:Poppins;
 }
 
-/* BACKGROUND GALAXY */
-
 body{
-background:radial-gradient(circle at top,#1f2a5a,#0b1026);
-color:white;
+background:#F9D0CE;
+color:#333;
 overflow-x:hidden;
 }
 
-.stars{
+/* PATTERN BACKGROUND */
+
+.pattern{
 position:fixed;
 width:100%;
 height:100%;
 background-image:
-radial-gradient(2px 2px at 20% 30%, white, transparent),
-radial-gradient(2px 2px at 80% 70%, white, transparent),
-radial-gradient(2px 2px at 50% 50%, white, transparent),
-radial-gradient(2px 2px at 10% 80%, white, transparent);
-animation:moveStars 50s linear infinite;
-z-index:-1;
+radial-gradient(circle at 20% 20%, #F297A020 2px, transparent 2px),
+radial-gradient(circle at 80% 60%, #B6BB7920 2px, transparent 2px),
+radial-gradient(circle at 40% 80%, #F297A020 2px, transparent 2px);
+background-size:120px 120px;
+z-index:-3;
 }
 
-@keyframes moveStars{
-from{transform:translateY(0)}
-to{transform:translateY(-1000px)}
+/* DECORATIVE SHAPES */
+
+.shape{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+z-index:-2;
+}
+
+.shape1{
+background:#F297A0;
+width:250px;
+height:250px;
+top:-80px;
+left:-80px;
+opacity:.5;
+}
+
+.shape2{
+background:#B6BB79;
+width:300px;
+height:300px;
+bottom:-120px;
+right:-100px;
+opacity:.4;
 }
 
 /* NAVBAR */
@@ -50,10 +77,10 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 8%;
+background:#F297A0;
+color:white;
 position:fixed;
 width:100%;
-background:rgba(0,0,0,0.3);
-backdrop-filter:blur(10px);
 z-index:100;
 }
 
@@ -64,7 +91,7 @@ color:white;
 }
 
 .menu a:hover{
-color:#7c8cff;
+color:#B6BB79;
 }
 
 /* HERO */
@@ -77,20 +104,18 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+background:#F3EBD8;
 }
 
 .hero h1{
-font-size:70px;
-background:linear-gradient(90deg,#7c8cff,#ff7eb3);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:60px;
+color:#F297A0;
 margin-bottom:20px;
 }
 
 .hero p{
-max-width:700px;
+max-width:650px;
 line-height:1.7;
-opacity:.8;
 margin-bottom:30px;
 }
 
@@ -98,38 +123,38 @@ margin-bottom:30px;
 
 .atom{
 position:relative;
-width:150px;
-height:150px;
+width:120px;
+height:120px;
 margin-bottom:25px;
 }
 
 .nucleus{
-width:35px;
-height:35px;
-background:#ff7eb3;
+width:25px;
+height:25px;
+background:#F297A0;
 border-radius:50%;
 position:absolute;
-top:58px;
-left:58px;
+top:47px;
+left:47px;
 }
 
 .orbit{
 position:absolute;
-width:150px;
-height:150px;
-border:2px solid #7c8cff;
+width:120px;
+height:120px;
+border:2px solid #B6BB79;
 border-radius:50%;
 animation:spin 6s linear infinite;
 }
 
 .electron{
-width:12px;
-height:12px;
-background:#6ed3cf;
+width:10px;
+height:10px;
+background:#B6BB79;
 border-radius:50%;
 position:absolute;
-top:-6px;
-left:69px;
+top:-5px;
+left:55px;
 }
 
 @keyframes spin{
@@ -140,35 +165,38 @@ to{transform:rotate(360deg)}
 /* BUTTON */
 
 .button{
-background:linear-gradient(135deg,#ff7eb3,#7c8cff);
-border:none;
-padding:14px 40px;
-border-radius:30px;
+background:#F297A0;
 color:white;
-font-size:16px;
+border:none;
+padding:14px 32px;
+border-radius:30px;
 cursor:pointer;
+}
+
+.button:hover{
+background:#B6BB79;
 }
 
 /* SECTION */
 
 .section{
-padding:120px 10%;
+padding:100px 10%;
 }
 
 .section-title{
-font-size:40px;
 text-align:center;
-margin-bottom:60px;
+font-size:40px;
+margin-bottom:50px;
+color:#F297A0;
 }
 
-/* ABOUT */
+/* CARD */
 
-.about{
-max-width:900px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-opacity:.85;
+.card{
+background:#F3EBD8;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* TIMELINE */
@@ -177,15 +205,6 @@ opacity:.85;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:30px;
-margin-top:40px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:18px;
-text-align:center;
-backdrop-filter:blur(10px);
 }
 
 /* COMPETITION */
@@ -197,10 +216,25 @@ gap:30px;
 }
 
 .comp-card{
-background:rgba(255,255,255,0.05);
+background:#F3EBD8;
 padding:30px;
-border-radius:18px;
+border-radius:20px;
 text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+.btn-daftar{
+display:inline-block;
+margin-top:15px;
+padding:10px 22px;
+background:#F297A0;
+color:white;
+border-radius:25px;
+text-decoration:none;
+}
+
+.btn-daftar:hover{
+background:#B6BB79;
 }
 
 /* STUDENT AMBASSADOR */
@@ -209,39 +243,34 @@ text-align:center;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:40px;
-margin-top:40px;
 }
 
 .amb-card{
-background:white;
-color:#333;
+background:#F3EBD8;
 padding:30px;
 border-radius:18px;
 }
 
-.amb-card h3{
-margin-bottom:20px;
-color:#7c8cff;
-}
+/* BUTTONS */
 
 .amb-btn{
-margin-top:40px;
 text-align:center;
+margin-top:40px;
 }
 
 .btn-lomba{
-background:linear-gradient(135deg,#ff7eb3,#ffb347);
+background:#F297A0;
 color:white;
-padding:14px 30px;
+padding:12px 28px;
 border-radius:30px;
-text-decoration:none;
 margin-right:20px;
+text-decoration:none;
 }
 
 .btn-sa{
-background:linear-gradient(135deg,#6ed3cf,#7c8cff);
+background:#B6BB79;
 color:white;
-padding:14px 30px;
+padding:12px 28px;
 border-radius:30px;
 text-decoration:none;
 }
@@ -265,7 +294,9 @@ text-decoration:none;
 
 <body>
 
-<div class="stars"></div>
+<div class="pattern"></div>
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
 
 <!-- NAVBAR -->
 
@@ -298,8 +329,8 @@ text-decoration:none;
 
 <p>
 Physics Summit merupakan event tahunan yang diselenggarakan oleh
-Himpunan Mahasiswa Fisika ITS untuk mengembangkan potensi
-generasi muda melalui kompetisi dan inovasi di bidang fisika.
+Departemen Fisika ITS untuk mengembangkan potensi generasi muda
+melalui kompetisi, inovasi, dan kolaborasi di bidang fisika.
 </p>
 
 <button class="button">Register Now</button>
@@ -310,93 +341,67 @@ generasi muda melalui kompetisi dan inovasi di bidang fisika.
 
 <div class="section" id="about">
 
-<div class="section-title">Tentang Physics Summit</div>
+<h2 class="section-title">Tentang Physics Summit</h2>
 
-<div class="about">
+<div class="card">
 
 Physics Summit merupakan big event yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-Acara ini terdiri dari beberapa kegiatan seperti Physics Olympiad,
-Physics Summit Education Competition (PSEC), serta program
-Student Ambassador.
-
-</div>
-
-<br><br>
-
-<div class="section-title">Perjalanan Physics Summit</div>
-
-<div class="timeline">
-
-<div class="card"><h3>2011</h3><p>Gebyar Fisika pertama.</p></div>
-
-<div class="card"><h3>2014</h3><p>Nama Physics Summit mulai digunakan.</p></div>
-
-<div class="card"><h3>2018</h3><p>Pembentukan Direktorat PS.</p></div>
-
-<div class="card"><h3>2020</h3><p>Kegiatan sempat vakum karena pandemi.</p></div>
-
-<div class="card"><h3>2024</h3><p>Physics Summit kembali diselenggarakan.</p></div>
-
-<div class="card"><h3>2025</h3><p>Physics Summit ke-10 terlaksana.</p></div>
+Acara ini terdiri dari Physics Olympiad, Physics Summit Education
+Competition (PSEC), serta program Student Ambassador.
 
 </div>
 
 </div>
 
-<!-- TIMELINE EVENT -->
+<!-- TIMELINE -->
 
 <div class="section" id="timeline">
 
-<div class="section-title">Timeline Event</div>
+<h2 class="section-title">Timeline Event</h2>
 
 <div class="timeline">
 
-<div class="card">
-<h3>1 Mei 2026</h3>
-<p>Pembukaan Pendaftaran</p>
-</div>
+<div class="card"><h3>1 Mei</h3>Pembukaan Pendaftaran</div>
 
-<div class="card">
-<h3>20 Juni 2026</h3>
-<p>Penutupan Pendaftaran</p>
-</div>
+<div class="card"><h3>20 Juni</h3>Penutupan Pendaftaran</div>
 
-<div class="card">
-<h3>5 Juli 2026</h3>
-<p>Babak Penyisihan</p>
-</div>
+<div class="card"><h3>5 Juli</h3>Penyisihan</div>
 
-<div class="card">
-<h3>20 Juli 2026</h3>
-<p>Babak Semifinal</p>
-</div>
+<div class="card"><h3>20 Juli</h3>Semifinal</div>
 
-<div class="card">
-<h3>5 Agustus 2026</h3>
-<p>Grand Final</p>
-</div>
+<div class="card"><h3>5 Agustus</h3>Grand Final</div>
 
 </div>
 
 </div>
 
-<!-- COMPETITION -->
+<!-- KOMPETISI -->
 
 <div class="section" id="competition">
 
-<div class="section-title">Kompetisi</div>
+<h2 class="section-title">Kompetisi</h2>
 
 <div class="competition">
 
 <div class="comp-card">
+
 <h3>Physics Olympiad</h3>
-<p>Kompetisi olimpiade fisika untuk siswa SMA sederajat.</p>
+
+<p>Kompetisi olimpiade fisika untuk siswa SMA/SMK.</p>
+
+<a class="btn-daftar" href="#">Daftar Physics Olympiad</a>
+
 </div>
 
 <div class="comp-card">
+
 <h3>PSEC</h3>
+
 <p>Physics Summit Education Competition berbasis eksperimen.</p>
+
+<a class="btn-daftar" href="#">Daftar PSEC</a>
+
 </div>
 
 </div>
@@ -407,7 +412,7 @@ Student Ambassador.
 
 <div class="section" id="ambassador">
 
-<div class="section-title">Student Ambassador</div>
+<h2 class="section-title">Student Ambassador</h2>
 
 <div class="ambassador">
 
@@ -416,9 +421,13 @@ Student Ambassador.
 <h3>Goals</h3>
 
 <ul>
-<li>Memperkenalkan kualitas Departemen Fisika ITS kepada masyarakat dan siswa SMA/SMK.</li>
-<li>Membangun jejaring akademik lintas kampus di Indonesia.</li>
-<li>Menjadi wadah pengembangan kemampuan komunikasi dan publikasi ilmiah.</li>
+
+<li>Memperkenalkan Departemen Fisika ITS kepada masyarakat.</li>
+
+<li>Membangun jejaring akademik lintas kampus.</li>
+
+<li>Mengembangkan kemampuan komunikasi mahasiswa.</li>
+
 </ul>
 
 </div>
@@ -428,9 +437,13 @@ Student Ambassador.
 <h3>Jobdesk</h3>
 
 <ol>
-<li>Menyebarluaskan informasi Physics Summit kepada siswa SMA/SMK.</li>
+
+<li>Menyebarluaskan informasi Physics Summit.</li>
+
 <li>Membuat konten kreatif mengenai Physics Summit.</li>
+
 <li>Melakukan publikasi kompetisi melalui kode referral.</li>
+
 </ol>
 
 </div>
@@ -439,21 +452,15 @@ Student Ambassador.
 
 <div class="amb-btn">
 
-<a class="btn-lomba" href="#">
-Daftar Lomba
-</a>
+<a class="btn-lomba" href="#">Daftar Lomba</a>
 
-<a class="btn-sa" href="#">
-Daftar Student Ambassador
-</a>
+<a class="btn-sa" href="#">Daftar Student Ambassador</a>
 
 </div>
 
 </div>
 
-<a class="wa" href="https://wa.me/6281362192288">
-Contact Person
-</a>
+<a class="wa" href="https://wa.me/6281362192288">Contact Person</a>
 
 </body>
 </html>
