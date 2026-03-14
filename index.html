@@ -7,7 +7,6 @@
 <title>Physics Summit ITS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 
 <style>
 
@@ -18,34 +17,51 @@ box-sizing:border-box;
 font-family:Poppins;
 }
 
+/* BACKGROUND */
+
 body{
-background:#F6F8FF;
-color:#2A2A2A;
+background:linear-gradient(135deg,#f6f8ff,#fff6fb);
 overflow-x:hidden;
+color:#444;
 }
 
-/* STAR BACKGROUND */
+/* GLOW DECORATION */
 
-.stars{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+.decor{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
 z-index:-1;
-background-image:
-radial-gradient(2px 2px at 20% 30%, #b7c7ff, transparent),
-radial-gradient(2px 2px at 80% 60%, #b7c7ff, transparent),
-radial-gradient(2px 2px at 40% 80%, #b7c7ff, transparent),
-radial-gradient(2px 2px at 10% 50%, #b7c7ff, transparent),
-radial-gradient(2px 2px at 90% 20%, #b7c7ff, transparent);
-animation:starsMove 20s linear infinite;
-opacity:0.5;
 }
 
-@keyframes starsMove{
-0%{transform:translateY(0);}
-100%{transform:translateY(-200px);}
+.decor1{
+width:300px;
+height:300px;
+background:#ffd6f6;
+top:100px;
+left:-100px;
+}
+
+.decor2{
+width:350px;
+height:350px;
+background:#d6e8ff;
+bottom:100px;
+right:-150px;
+}
+
+/* STARS */
+
+.star{
+position:absolute;
+color:#a9baff;
+font-size:18px;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.3;transform:scale(.8)}
+to{opacity:1;transform:scale(1.2)}
 }
 
 /* NAVBAR */
@@ -56,30 +72,21 @@ justify-content:space-between;
 align-items:center;
 padding:20px 8%;
 background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
 position:fixed;
 width:100%;
-top:0;
 z-index:100;
 }
 
-.logo{
-font-weight:700;
-font-size:20px;
-}
-
-.menu{
-display:flex;
-gap:30px;
-}
-
 .menu a{
+margin-left:25px;
 text-decoration:none;
-color:#4A4A4A;
+color:#555;
+font-weight:500;
 }
 
 .menu a:hover{
-color:#6E8BFF;
+color:#7c8cff;
 }
 
 /* HERO */
@@ -91,50 +98,81 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:0 20px;
-}
-
-.hero img{
-width:120px;
-margin-bottom:20px;
-animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
+padding:20px;
 }
 
 .hero h1{
-font-size:58px;
-color:#3A4B7A;
+font-size:60px;
+color:#5b6fff;
 margin-bottom:20px;
 }
 
 .hero p{
 max-width:650px;
 line-height:1.7;
-color:#5F6C8F;
+color:#666;
 margin-bottom:30px;
+}
+
+/* ATOM ANIMATION */
+
+.atom{
+position:relative;
+width:120px;
+height:120px;
+margin-bottom:25px;
+}
+
+.nucleus{
+width:30px;
+height:30px;
+background:#ff7eb3;
+border-radius:50%;
+position:absolute;
+top:45px;
+left:45px;
+}
+
+.orbit{
+position:absolute;
+width:120px;
+height:120px;
+border:2px solid #a7b5ff;
+border-radius:50%;
+animation:spin 6s linear infinite;
+}
+
+.electron{
+width:10px;
+height:10px;
+background:#6ed3cf;
+border-radius:50%;
+position:absolute;
+top:-5px;
+left:55px;
+}
+
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
 }
 
 /* BUTTON */
 
 .button{
-background:#6ED3CF;
+background:linear-gradient(135deg,#ff7eb3,#6ed3cf);
 border:none;
-padding:14px 38px;
+padding:14px 36px;
 border-radius:30px;
 color:white;
 font-size:16px;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 .button:hover{
-transform:scale(1.06);
-box-shadow:0 6px 20px rgba(0,0,0,0.1);
+transform:scale(1.08);
+box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
 /* SECTION */
@@ -144,10 +182,10 @@ padding:120px 10%;
 }
 
 .section-title{
-font-size:40px;
+font-size:38px;
 text-align:center;
 margin-bottom:40px;
-color:#3A4B7A;
+color:#5b6fff;
 }
 
 /* ABOUT */
@@ -173,7 +211,7 @@ background:white;
 padding:30px;
 border-radius:14px;
 box-shadow:0 4px 12px rgba(0,0,0,0.05);
-transition:0.3s;
+transition:.3s;
 }
 
 .card:hover{
@@ -181,37 +219,11 @@ transform:translateY(-6px);
 }
 
 .card h3{
-color:#6E8BFF;
+color:#7c8cff;
 margin-bottom:10px;
 }
 
-/* THEME */
-
-.theme-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.theme-box{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.05);
-margin-bottom:20px;
-}
-
-/* FOOTER */
-
-.footer{
-text-align:center;
-padding:60px 20px;
-font-size:14px;
-color:#6C7A9C;
-}
-
-/* WHATSAPP BUTTON */
+/* WHATSAPP */
 
 .wa{
 position:fixed;
@@ -220,9 +232,10 @@ right:25px;
 background:#25D366;
 color:white;
 padding:14px 20px;
-border-radius:50px;
+border-radius:40px;
 text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+font-size:14px;
+box-shadow:0 6px 18px rgba(0,0,0,.2);
 }
 
 </style>
@@ -231,156 +244,119 @@ box-shadow:0 5px 15px rgba(0,0,0,0.2);
 
 <body>
 
-<div class="stars"></div>
+<div class="decor decor1"></div>
+<div class="decor decor2"></div>
+
+<div class="star" style="top:200px;left:10%">✦</div>
+<div class="star" style="top:300px;right:20%">✦</div>
+<div class="star" style="top:150px;right:40%">✦</div>
+
+<!-- NAVBAR -->
 
 <div class="navbar">
 
-<div class="logo">Physics Summit</div>
+<div><b>Physics Summit</b></div>
 
 <div class="menu">
 <a href="#">Home</a>
 <a href="#about">Tentang</a>
 <a href="#timeline">Perjalanan</a>
-<a href="#theme">Tema</a>
 </div>
 
 </div>
+
+<!-- HERO -->
 
 <div class="hero">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2942/2942813.png">
+<div class="atom">
+<div class="orbit">
+<div class="electron"></div>
+</div>
+<div class="nucleus"></div>
+</div>
 
-<h1 data-aos="fade-up">11TH PHYSICS SUMMIT</h1>
+<h1>11TH PHYSICS SUMMIT</h1>
 
-<p data-aos="fade-up" data-aos-delay="200">
+<p>
 Physics Summit merupakan event tahunan yang diselenggarakan oleh
-Himpunan Mahasiswa Fisika ITS (HIMASIKA ITS) yang bertujuan untuk
-mengembangkan potensi generasi muda dalam bidang fisika serta
-mendorong inovasi dan kolaborasi akademik.
+Himpunan Mahasiswa Fisika ITS untuk mengembangkan potensi
+generasi muda melalui kompetisi, edukasi, serta inovasi
+di bidang fisika.
 </p>
 
-<button class="button" data-aos="zoom-in" data-aos-delay="400">
-Register Now
-</button>
+<button class="button">Register Now</button>
 
 </div>
+
+<!-- ABOUT -->
 
 <div class="section" id="about">
 
-<div class="section-title" data-aos="fade-up">
+<div class="section-title">
 Tentang Physics Summit
 </div>
 
-<div class="about" data-aos="fade-up">
+<div class="about">
 
 Physics Summit merupakan big event yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-Acara ini terdiri dari dua sub perlombaan utama yaitu Physics
-Olympiad dan Physics Summit Education Competition (PSEC).
+Acara ini terdiri dari dua sub perlombaan utama yaitu
+Physics Olympiad dan Physics Summit Education Competition (PSEC).
 Selain itu terdapat program Student Ambassador yang bertujuan
-untuk mengembangkan kepemimpinan serta memperluas jaringan
-akademik di bidang fisika.
+mengembangkan kepemimpinan serta memperluas jaringan akademik.
 
 </div>
 
 </div>
+
+<!-- TIMELINE -->
 
 <div class="section" id="timeline">
 
-<div class="section-title" data-aos="fade-up">
+<div class="section-title">
 Perjalanan Physics Summit
 </div>
 
 <div class="timeline">
 
-<div class="card" data-aos="fade-up">
+<div class="card">
 <h3>2011</h3>
 <p>Penyelenggaraan pertama Physics Summit.</p>
 </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="100">
+<div class="card">
 <h3>2014</h3>
-<p>Nama acara resmi berubah menjadi Physics Summit.</p>
+<p>Nama Physics Summit mulai digunakan.</p>
 </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="200">
+<div class="card">
 <h3>2018</h3>
 <p>Pembentukan Direktorat Physics Summit.</p>
 </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="300">
+<div class="card">
 <h3>2020</h3>
 <p>Kegiatan dihentikan sementara akibat pandemi.</p>
 </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="400">
+<div class="card">
 <h3>2024</h3>
 <p>Physics Summit kembali diselenggarakan.</p>
 </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="500">
+<div class="card">
 <h3>2025</h3>
-<p>Physics Summit ke-10 berhasil dilaksanakan.</p>
+<p>Penyelenggaraan Physics Summit ke-10.</p>
 </div>
 
 </div>
 
-</div>
-
-<div class="section" id="theme">
-
-<div class="section-title" data-aos="fade-up">
-Tema Physics Summit
-</div>
-
-<div class="theme-grid">
-
-<div>
-
-<div class="theme-box" data-aos="fade-right">
-<h3>DEKA</h3>
-Deka berasal dari bahasa Yunani yang berarti sepuluh dan
-melambangkan sepuluh tahun perjalanan Physics Summit.
-</div>
-
-<div class="theme-box" data-aos="fade-right">
-<h3>VALENSI</h3>
-Valensi menggambarkan kemampuan atom untuk saling berikatan
-dan membangun sesuatu yang lebih besar melalui kolaborasi.
-</div>
-
-<div class="theme-box" data-aos="fade-right">
-<h3>DEKA VALENSI</h3>
-Tema ini melambangkan sepuluh tahun perjalanan Physics Summit
-dalam membangun koneksi ilmu pengetahuan dan inovasi.
-</div>
-
-</div>
-
-<div data-aos="fade-left">
-<img src="https://cdn-icons-png.flaticon.com/512/4616/4616734.png" width="280">
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
-Instagram : physics_summit
 </div>
 
 <a class="wa" href="https://wa.me/6281362192288" target="_blank">
 Contact Person
 </a>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-AOS.init({
-duration:1000,
-once:true
-});
-</script>
 
 </body>
 </html>
