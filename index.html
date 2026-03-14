@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -11,7 +9,7 @@
 
 <style>
 
-/* COLOR PALETTE */
+/* COLOR */
 
 :root{
 --pink:#F297A0;
@@ -27,47 +25,6 @@ margin:0;
 font-family:Arial;
 background:var(--pinksoft);
 color:#333;
-overflow-x:hidden;
-}
-
-/* PHYSICS PATTERN */
-
-.pattern{
-position:fixed;
-width:100%;
-height:100%;
-background-image:
-radial-gradient(circle,#F297A020 2px,transparent 2px),
-radial-gradient(circle,#B6BB7920 2px,transparent 2px);
-background-size:120px 120px;
-z-index:-3;
-}
-
-/* DECOR SHAPES */
-
-.shape{
-position:absolute;
-border-radius:50%;
-filter:blur(80px);
-z-index:-2;
-}
-
-.shape1{
-background:var(--pink);
-width:250px;
-height:250px;
-top:-80px;
-left:-80px;
-opacity:.5;
-}
-
-.shape2{
-background:var(--green);
-width:300px;
-height:300px;
-bottom:-120px;
-right:-120px;
-opacity:.4;
 }
 
 /* NAVBAR */
@@ -80,7 +37,7 @@ background:var(--pink);
 color:white;
 position:sticky;
 top:0;
-z-index:100;
+z-index:10;
 }
 
 .navbar a{
@@ -121,8 +78,8 @@ color:var(--pink);
 max-width:700px;
 margin:auto;
 text-align:center;
-margin-bottom:40px;
 line-height:1.7;
+margin-bottom:40px;
 }
 
 /* GALLERY */
@@ -136,11 +93,6 @@ gap:20px;
 .gallery img{
 width:100%;
 border-radius:15px;
-transition:0.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
 }
 
 /* COMPETITION */
@@ -152,16 +104,81 @@ gap:40px;
 }
 
 .comp-card{
-background:var(--cream);
-padding:20px;
+background:white;
 border-radius:20px;
-text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.comp-card:hover{
+transform:translateY(-6px);
 }
 
 .comp-card img{
 width:100%;
-border-radius:15px;
-margin-bottom:15px;
+}
+
+.comp-content{
+padding:25px;
+}
+
+.comp-title{
+font-size:22px;
+color:var(--pink);
+margin-bottom:10px;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+padding:10px 20px;
+border-radius:20px;
+text-decoration:none;
+color:white;
+background:var(--pink);
+margin-top:10px;
+}
+
+/* ACCORDION */
+
+.accordion{
+margin-top:20px;
+}
+
+.accordion-btn{
+background:var(--cream);
+border:none;
+width:100%;
+padding:12px;
+text-align:left;
+cursor:pointer;
+border-radius:10px;
+margin-top:10px;
+font-weight:bold;
+}
+
+.accordion-content{
+display:none;
+padding:10px 5px;
+}
+
+/* TIMELINE */
+
+.timeline{
+margin-top:15px;
+border-left:3px solid var(--pink);
+padding-left:15px;
+}
+
+.timeline-item{
+margin-bottom:12px;
+}
+
+.timeline-item span{
+font-weight:bold;
+color:var(--pink);
 }
 
 /* MERCH */
@@ -197,10 +214,11 @@ gap:30px;
 }
 
 .contact-card{
-background:var(--cream);
+background:white;
 padding:25px;
 border-radius:20px;
 text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 .btn-wa{
@@ -219,10 +237,6 @@ border-radius:25px;
 
 <body>
 
-<div class="pattern"></div>
-<div class="shape shape1"></div>
-<div class="shape shape2"></div>
-
 <!-- NAVBAR -->
 
 <div class="navbar">
@@ -232,8 +246,8 @@ border-radius:25px;
 <div>
 <a href="#about">About</a>
 <a href="#competition">Kompetisi</a>
-<a href="#merch">Merchandise</a>
-<a href="#contact">Contact Person</a>
+<a href="#merch">Merch</a>
+<a href="#contact">Contact</a>
 </div>
 
 </div>
@@ -244,20 +258,24 @@ border-radius:25px;
 
 <h1>11th Physics Summit</h1>
 
+<p>Empowering the Future through Physics</p>
+
 </div>
 
 <!-- ABOUT -->
 
-<section class="section" id="about" data-aos="fade-up">
+<section class="section" id="about">
 
 <h2 class="section-title">About Physics Summit</h2>
 
 <p class="about-text">
+
 Physics Summit merupakan event tahunan yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-Event ini bertujuan untuk memperkenalkan dunia fisika kepada
-generasi muda serta menjadi wadah bagi siswa dan mahasiswa
-untuk mengembangkan potensi akademik dan kreativitas.
+Event ini menjadi wadah bagi siswa dan mahasiswa dari seluruh
+Indonesia untuk mengembangkan kemampuan akademik, kreativitas,
+dan inovasi di bidang fisika.
+
 </p>
 
 <div class="gallery">
@@ -273,35 +291,151 @@ untuk mengembangkan potensi akademik dan kreativitas.
 
 <!-- COMPETITION -->
 
-<section class="section" id="competition" data-aos="fade-up">
+<section class="section" id="competition">
 
 <h2 class="section-title">Kompetisi</h2>
 
 <div class="comp-container">
 
+<!-- PSO -->
+
 <div class="comp-card">
 
 <img src="poster-pso.jpg">
 
-<h3>Physics Summit Olympiad (PSO)</h3>
+<div class="comp-content">
+
+<div class="comp-title">Physics Summit Olympiad (PSO)</div>
 
 <p>
-Physics Summit Olympiad merupakan kompetisi olimpiade fisika
-tingkat nasional untuk siswa SMA/SMK sederajat di seluruh Indonesia.
+Kompetisi olimpiade fisika nasional untuk siswa SMA/SMK sederajat
+yang bertujuan mengasah kemampuan analisis dan problem solving
+di bidang fisika.
 </p>
 
+<a class="btn" href="https://its.id/m/OprecPSO2025" target="_blank">
+Daftar PSO
+</a>
+
+<div class="accordion">
+
+<button class="accordion-btn">Syarat Peserta</button>
+
+<div class="accordion-content">
+
+<ul>
+<li>Siswa SMA/SMK/MA kelas X–XII</li>
+<li>Tim terdiri dari 2 orang</li>
+<li>Belum pernah menjadi pemenang OSN atau Physics Summit</li>
+</ul>
+
 </div>
+
+<button class="accordion-btn">Timeline</button>
+
+<div class="accordion-content">
+
+<div class="timeline">
+
+<div class="timeline-item">
+<span>7 Sept 2025</span> Roadshow
+</div>
+
+<div class="timeline-item">
+<span>1–18 Sept</span> Pendaftaran
+</div>
+
+<div class="timeline-item">
+<span>24 Sept</span> Try Out
+</div>
+
+<div class="timeline-item">
+<span>27 Sept</span> Penyisihan
+</div>
+
+<div class="timeline-item">
+<span>5 Okt</span> Semi Final
+</div>
+
+<div class="timeline-item">
+<span>26 Okt</span> Final
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PSEC -->
 
 <div class="comp-card">
 
 <img src="poster-psec.jpg">
 
-<h3>PSEC</h3>
+<div class="comp-content">
+
+<div class="comp-title">Physics Summit Essay Competition (PSEC)</div>
 
 <p>
-Physics Summit Essay Competition merupakan kompetisi esai ilmiah
-yang ditujukan bagi mahasiswa serta siswa SMA/SMK dari seluruh Indonesia.
+
+Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK
+yang berfokus pada inovasi berbasis ilmu fisika untuk Society 5.0.
+
 </p>
+
+<a class="btn" href="#" target="_blank">
+Daftar PSEC
+</a>
+
+<div class="accordion">
+
+<button class="accordion-btn">Tema</button>
+
+<div class="accordion-content">
+
+Empowering the Future through Physics:
+Smart Innovations for a Sustainable Society 5.0
+
+</div>
+
+<button class="accordion-btn">Timeline</button>
+
+<div class="accordion-content">
+
+<div class="timeline">
+
+<div class="timeline-item">
+<span>1–15 Sept</span> Abstrak
+</div>
+
+<div class="timeline-item">
+<span>17 Sept</span> Pengumuman
+</div>
+
+<div class="timeline-item">
+<span>18–9 Okt</span> Full Paper
+</div>
+
+<div class="timeline-item">
+<span>18 Okt</span> Finalis
+</div>
+
+<div class="timeline-item">
+<span>26 Okt</span> Presentasi
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -311,7 +445,7 @@ yang ditujukan bagi mahasiswa serta siswa SMA/SMK dari seluruh Indonesia.
 
 <!-- MERCH -->
 
-<section class="section" id="merch" data-aos="fade-up">
+<section class="section" id="merch">
 
 <h2 class="section-title">Merchandise</h2>
 
@@ -322,9 +456,11 @@ yang ditujukan bagi mahasiswa serta siswa SMA/SMK dari seluruh Indonesia.
 <div>
 
 <p>
-Physics Summit menyediakan berbagai merchandise eksklusif seperti
-gantungan kunci, keystrap, mug, pin, kipas, dan berbagai item
-menarik lainnya.
+
+Physics Summit menyediakan berbagai merchandise eksklusif
+seperti gantungan kunci, keystrap, mug, pin, kipas, dan
+produk menarik lainnya.
+
 </p>
 
 <a href="https://its.id/m/PreOrderMerchPhysicsSummit2025"
@@ -343,7 +479,7 @@ Pre Order Merchandise
 
 <!-- CONTACT -->
 
-<section class="section" id="contact" data-aos="fade-up">
+<section class="section" id="contact">
 
 <h2 class="section-title">Contact Person</h2>
 
@@ -367,7 +503,7 @@ Chat Sandy
 
 <div class="contact-card">
 
-<h3>Physics Summit Olympiad (PSO)</h3>
+<h3>PSO</h3>
 
 <p>Rozan</p>
 
@@ -381,30 +517,34 @@ Chat Rozan
 
 </div>
 
-<div class="contact-card">
-
-<h3>PSEC</h3>
-
-<p>Contact Person PSEC</p>
-
-<a class="btn-wa"
-href="https://wa.me/6281234567890"
-target="_blank">
-
-Chat PSEC
-
-</a>
-
-</div>
-
 </div>
 
 </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
-AOS.init();
+
+/* ACCORDION */
+
+var acc=document.getElementsByClassName("accordion-btn");
+
+for(i=0;i<acc.length;i++){
+
+acc[i].addEventListener("click",function(){
+
+this.classList.toggle("active");
+
+var panel=this.nextElementSibling;
+
+if(panel.style.display==="block"){
+panel.style.display="none";
+}else{
+panel.style.display="block";
+}
+
+});
+
+}
+
 </script>
 
 </body>
