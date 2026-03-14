@@ -1,0 +1,131 @@
+body{
+font-family:Arial;
+margin:0;
+background:#F9D0CE;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:#F297A0;
+color:white;
+position:sticky;
+top:0;
+}
+
+nav a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#F3EBD8;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+color:#F297A0;
+}
+
+/* ATOM */
+
+.atom-animation{
+width:120px;
+height:120px;
+border:3px solid #F297A0;
+border-radius:50%;
+animation:spin 10s linear infinite;
+margin-top:30px;
+}
+
+@keyframes spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 10%;
+text-align:center;
+}
+
+/* TIMELINE */
+
+.timeline{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+width:200px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* COMPETITION */
+
+.competition-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.competition-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.btn{
+background:#F297A0;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+display:inline-block;
+margin-top:10px;
+}
+
+/* SPONSOR */
+
+.sponsor-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+}
+
+.sponsor-grid img{
+width:100%;
+}
+
+/* CONTACT */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.contact-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
