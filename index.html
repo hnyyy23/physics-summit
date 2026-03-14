@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Physics Summit HIMASIKA</title>
+<title>Physics Summit ITS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-body{
+*{
 margin:0;
-font-family: 'Poppins', sans-serif;
-background:#0d1b3d;
-color:white;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#0f1f3d;
+color:#ffffff;
 overflow-x:hidden;
 }
 
@@ -21,21 +28,32 @@ overflow-x:hidden;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-background:rgba(0,0,0,0.3);
+padding:20px 8%;
+background:#09152b;
 position:fixed;
 width:100%;
 top:0;
+z-index:1000;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
 }
 
 .menu{
 display:flex;
-gap:40px;
-font-weight:500;
+gap:30px;
 }
 
 .menu a{
 text-decoration:none;
+color:#dbe6ff;
+font-size:15px;
+transition:0.2s;
+}
+
+.menu a:hover{
 color:white;
 }
 
@@ -44,155 +62,288 @@ color:white;
 .hero{
 height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 text-align:center;
+padding:0 20px;
 }
 
-.hero h1{
-font-size:60px;
-margin:20px 0;
-letter-spacing:3px;
-}
-
-.hero p{
-max-width:600px;
-font-size:18px;
-opacity:0.8;
-}
-
-/* BUTTON */
-
-.button{
-margin-top:30px;
-padding:14px 40px;
-background:#ff4b5c;
-border:none;
-border-radius:30px;
-font-size:18px;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-.button:hover{
-transform:scale(1.1);
-background:#ff1f3c;
-}
-
-/* ATOM */
-
-.atom{
-width:160px;
-animation:spin 8s linear infinite;
-}
-
-@keyframes spin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
-/* FLOAT PARTICLES */
-
-.particle{
-position:absolute;
-width:6px;
-height:6px;
-background:white;
-border-radius:50%;
-opacity:0.6;
-animation:float 10s infinite;
+.hero img{
+width:140px;
+margin-bottom:25px;
+animation:float 5s ease-in-out infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-100px)}
+50%{transform:translateY(-12px)}
 100%{transform:translateY(0)}
+}
+
+.hero h1{
+font-size:60px;
+letter-spacing:3px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:650px;
+opacity:0.85;
+margin-bottom:30px;
+line-height:1.7;
+}
+
+.button{
+background:#00d2a3;
+border:none;
+padding:14px 38px;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+color:white;
+transition:0.2s;
+}
+
+.button:hover{
+transform:scale(1.06);
+}
+
+/* SECTION */
+
+.section{
+padding:120px 10%;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:40px;
+text-align:center;
 }
 
 /* ABOUT */
 
 .about{
-padding:120px 20%;
+max-width:900px;
+margin:auto;
 text-align:center;
-background:#11265a;
-}
-
-.about h2{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.about p{
 line-height:1.8;
 opacity:0.9;
 }
 
-</style>
-</head>
+/* TIMELINE */
 
+.timeline{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:#182c56;
+padding:30px;
+border-radius:14px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+background:#213c72;
+}
+
+.card h3{
+margin-bottom:10px;
+color:#7cc4ff;
+}
+
+/* THEME */
+
+.theme-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.theme-box{
+background:#182c56;
+padding:25px;
+border-radius:12px;
+margin-bottom:20px;
+line-height:1.7;
+}
+
+.theme-box h3{
+color:#7cc4ff;
+margin-bottom:10px;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:60px 20px;
+opacity:0.6;
+font-size:14px;
+}
+
+/* WHATSAPP */
+
+.wa{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:14px 20px;
+border-radius:50px;
+font-size:14px;
+text-decoration:none;
+box-shadow:0 6px 18px rgba(0,0,0,0.3);
+}
+
+</style>
+
+</head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <div class="navbar">
-
-<h2>Physics Summit</h2>
+<div class="logo">Physics Summit</div>
 
 <div class="menu">
 <a href="#">Home</a>
-<a href="#">Tentang</a>
-<a href="#">Timeline</a>
+<a href="#about">Tentang</a>
+<a href="#timeline">Perjalanan</a>
+<a href="#theme">Tema</a>
 <a href="#">Guidebook</a>
 </div>
-
 </div>
-
-
-<!-- HERO -->
 
 <div class="hero">
 
-<img class="atom" src="https://cdn-icons-png.flaticon.com/512/2942/2942813.png">
+<img src="https://cdn-icons-png.flaticon.com/512/2942/2942813.png">
 
 <h1>11TH PHYSICS SUMMIT</h1>
 
 <p>
 Physics Summit merupakan event tahunan yang diselenggarakan oleh
-Himpunan Mahasiswa Fisika ITS (HIMASIKA ITS) untuk mengembangkan
-potensi generasi muda di bidang fisika.
+Himpunan Mahasiswa Fisika ITS (HIMASIKA ITS). Kegiatan ini bertujuan
+untuk mengembangkan potensi generasi muda dalam bidang fisika serta
+mendorong kolaborasi akademik dan inovasi ilmiah.
 </p>
 
 <button class="button">Register Now</button>
 
 </div>
 
+<div class="section" id="about">
 
-<!-- ABOUT -->
+<div class="section-title">Tentang Physics Summit</div>
 
 <div class="about">
 
-<h2>What is Physics Summit?</h2>
-
-<p>
-Physics Summit adalah acara yang diselenggarakan oleh Departemen Fisika
-Institut Teknologi Sepuluh Nopember (ITS) melalui HIMASIKA ITS yang
-menggabungkan kegiatan akademik dan manajerial untuk memberikan
-kontribusi nyata kepada masyarakat luas.
-</p>
+Physics Summit adalah big event yang diselenggarakan oleh Departemen
+Fisika Institut Teknologi Sepuluh Nopember (ITS). Kegiatan ini terdiri
+dari dua sub perlombaan utama yaitu Physics Olympiad dan Physics Summit
+Education Competition (PSEC). Selain itu terdapat program Student
+Ambassador yang memberikan kesempatan bagi mahasiswa untuk
+berpartisipasi dalam kegiatan akademik dan pengembangan komunitas
+fisika.
 
 </div>
 
+</div>
 
-<!-- PARTICLES -->
+<div class="section" id="timeline">
 
-<div class="particle" style="top:20%; left:10%"></div>
-<div class="particle" style="top:40%; left:80%"></div>
-<div class="particle" style="top:70%; left:20%"></div>
-<div class="particle" style="top:60%; left:60%"></div>
+<div class="section-title">Perjalanan Physics Summit</div>
+
+<div class="timeline">
+
+<div class="card">
+<h3>2011</h3>
+<p>Penyelenggaraan pertama Physics Summit (Gebyar Fisika).</p>
+</div>
+
+<div class="card">
+<h3>2014</h3>
+<p>Nama acara resmi berubah menjadi Physics Summit.</p>
+</div>
+
+<div class="card">
+<h3>2018</h3>
+<p>Penetapan Direktorat Physics Summit.</p>
+</div>
+
+<div class="card">
+<h3>2020</h3>
+<p>Kegiatan dihentikan sementara akibat pandemi COVID-19.</p>
+</div>
+
+<div class="card">
+<h3>2024</h3>
+<p>Physics Summit kembali diselenggarakan.</p>
+</div>
+
+<div class="card">
+<h3>2025</h3>
+<p>Physics Summit ke-10 berhasil dilaksanakan.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section" id="theme">
+
+<div class="section-title">Tema Physics Summit</div>
+
+<div class="theme-grid">
+
+<div>
+
+<div class="theme-box">
+<h3>DEKA</h3>
+Deka berasal dari bahasa Yunani yang berarti sepuluh. Istilah ini
+melambangkan sepuluh tahun perjalanan Physics Summit.
+</div>
+
+<div class="theme-box">
+<h3>VALENSI</h3>
+Valensi menggambarkan kemampuan atom untuk berikatan dengan atom lain,
+yang dapat dimaknai sebagai kemampuan untuk saling terhubung dan
+membangun sesuatu yang lebih besar bersama.
+</div>
+
+<div class="theme-box">
+<h3>DEKA VALENSI</h3>
+Tema ini melambangkan sepuluh tahun perjalanan Physics Summit dalam
+membangun koneksi ilmu pengetahuan, kolaborasi, serta inovasi bagi masa
+depan.
+</div>
+
+</div>
+
+<div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/4616/4616734.png" width="320">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Instagram : physics_summit
+</div>
+
+<a class="wa" href="https://wa.me/6281362192288" target="_blank">
+Contact Person
+</a>
 
 </body>
-
 </html>
