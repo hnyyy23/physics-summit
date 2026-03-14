@@ -5,248 +5,9 @@
 <meta charset="UTF-8">
 <title>Physics Summit</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#F9D0CE;
-color:#333;
-}
-
-/* NAVBAR */
-
-.navbar{
-display:flex;
-justify-content:space-between;
-padding:20px 10%;
-background:#F297A0;
-color:white;
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.navbar a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-}
-
-/* HERO */
-
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-background:#F3EBD8;
-text-align:center;
-}
-
-.hero h1{
-font-size:60px;
-color:#F297A0;
-margin-bottom:20px;
-}
-
-/* ATOM ANIMATION */
-
-.atom{
-position:relative;
-width:150px;
-height:150px;
-margin-top:30px;
-}
-
-.orbit{
-position:absolute;
-border:2px solid #F297A0;
-border-radius:50%;
-width:100%;
-height:100%;
-animation:spin 8s linear infinite;
-}
-
-.orbit:nth-child(2){
-transform:rotate(60deg);
-}
-
-.orbit:nth-child(3){
-transform:rotate(120deg);
-}
-
-.nucleus{
-width:30px;
-height:30px;
-background:#F297A0;
-border-radius:50%;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-}
-
-@keyframes spin{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
-}
-
-/* SECTION */
-
-.section{
-padding:80px 10%;
-}
-
-.section-title{
-text-align:center;
-font-size:36px;
-margin-bottom:40px;
-color:#F297A0;
-}
-
-/* ABOUT */
-
-.about{
-max-width:800px;
-margin:auto;
-text-align:center;
-line-height:1.7;
-}
-
-/* HISTORY */
-
-.timeline{
-display:flex;
-flex-wrap:wrap;
-gap:25px;
-justify-content:center;
-}
-
-.timeline-card{
-background:white;
-padding:25px;
-border-radius:15px;
-width:200px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.timeline-card h3{
-color:#F297A0;
-}
-
-/* COMPETITION */
-
-.comp-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-.comp-card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.comp-card h3{
-color:#F297A0;
-margin-bottom:10px;
-}
-
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:10px 20px;
-border-radius:20px;
-background:#F297A0;
-color:white;
-text-decoration:none;
-}
-
-/* GUIDEBOOK MODAL */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-justify-content:center;
-align-items:center;
-}
-
-.modal-content{
-background:white;
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-.close{
-cursor:pointer;
-font-size:20px;
-float:right;
-}
-
-/* SPONSOR */
-
-.sponsor-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-align-items:center;
-}
-
-.sponsor-grid img{
-width:100%;
-filter:grayscale(100%);
-transition:0.3s;
-}
-
-.sponsor-grid img:hover{
-filter:none;
-}
-
-/* CONTACT */
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
-.contact-card{
-background:white;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.btn-wa{
-display:inline-block;
-margin-top:10px;
-padding:10px 20px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:25px;
-}
-
-</style>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -254,93 +15,91 @@ border-radius:25px;
 
 <!-- NAVBAR -->
 
-<div class="navbar">
+<nav>
 
-<b>Physics Summit</b>
+<h2>Physics Summit</h2>
 
 <div>
 <a href="#about">About</a>
-<a href="#history">Perjalanan</a>
-<a href="#competition">Kompetisi</a>
+<a href="#history">History</a>
+<a href="#competition">Competition</a>
 <a href="#sponsor">Sponsor</a>
 <a href="#contact">Contact</a>
 </div>
 
-</div>
+</nav>
 
 <!-- HERO -->
 
 <section class="hero">
 
-<h1>11th Physics Summit</h1>
+<div data-aos="fade-up">
 
-<p>Empowering Future Through Physics</p>
+<h1>Physics Summit 11th</h1>
 
-<div class="atom">
-
-<div class="orbit"></div>
-<div class="orbit"></div>
-<div class="orbit"></div>
-<div class="nucleus"></div>
+<p>Empowering the Future Through Physics</p>
 
 </div>
+
+<div class="atom-animation"></div>
 
 </section>
 
 <!-- ABOUT -->
 
-<section class="section" id="about">
+<section id="about" data-aos="fade-right">
 
-<h2 class="section-title">About Physics Summit</h2>
+<h2>About Physics Summit</h2>
 
-<div class="about">
+<p>
 
 Physics Summit merupakan big event yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
 
-Event ini memiliki dua kompetisi utama yaitu
+Event ini terdiri dari dua kompetisi utama yaitu
 Physics Summit Olympiad (PSO) dan
-Physics Summit Essay Competition (PSEC),
-serta program Student Ambassador (SA).
+Physics Summit Essay Competition (PSEC).
 
-</div>
+Selain itu terdapat program Student Ambassador (SA).
+
+</p>
 
 </section>
 
 <!-- HISTORY -->
 
-<section class="section" id="history">
+<section id="history">
 
-<h2 class="section-title">Perjalanan Physics Summit</h2>
+<h2 data-aos="fade-up">Perjalanan Physics Summit</h2>
 
 <div class="timeline">
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2011</h3>
 <p>First Gebyar</p>
 </div>
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2014</h3>
 <p>Berganti nama menjadi Physics Summit</p>
 </div>
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2018</h3>
 <p>Penetapan Dirut PS</p>
 </div>
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2020</h3>
 <p>Vakum karena Covid</p>
 </div>
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2024</h3>
 <p>Mulai lagi</p>
 </div>
 
-<div class="timeline-card">
+<div class="card" data-aos="zoom-in">
 <h3>2025</h3>
 <p>Physics Summit 10th</p>
 </div>
@@ -351,33 +110,35 @@ serta program Student Ambassador (SA).
 
 <!-- COMPETITION -->
 
-<section class="section" id="competition">
+<section id="competition">
 
-<h2 class="section-title">Kompetisi</h2>
+<h2 data-aos="fade-up">Competitions</h2>
 
-<div class="comp-container">
+<div class="competition-grid">
 
-<div class="comp-card">
+<div class="competition-card" data-aos="flip-left">
 
-<h3>Physics Summit Olympiad (PSO)</h3>
+<h3>PSO</h3>
 
 <p>
-Kompetisi olimpiade fisika tingkat nasional untuk siswa SMA/SMK sederajat.
+National Physics Olympiad competition
+for high school students.
 </p>
 
-<a class="btn" onclick="openModal()">Guidebook</a>
+<a class="btn">Guidebook</a>
 
 </div>
 
-<div class="comp-card">
+<div class="competition-card" data-aos="flip-left">
 
-<h3>Physics Summit Essay Competition (PSEC)</h3>
+<h3>PSEC</h3>
 
 <p>
-Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK.
+National Scientific Essay Competition
+for university and high school students.
 </p>
 
-<a class="btn" onclick="openModal()">Guidebook</a>
+<a class="btn">Guidebook</a>
 
 </div>
 
@@ -385,38 +146,18 @@ Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK.
 
 </section>
 
-<!-- MODAL -->
-
-<div class="modal" id="guidebookModal">
-
-<div class="modal-content">
-
-<span class="close" onclick="closeModal()">×</span>
-
-<h3>Download Guidebook</h3>
-
-<p>Pilih guidebook kompetisi:</p>
-
-<a class="btn" href="#">Guidebook PSO</a>
-<a class="btn" href="#">Guidebook PSEC</a>
-
-</div>
-
-</div>
-
 <!-- SPONSOR -->
 
-<section class="section" id="sponsor">
+<section id="sponsor">
 
-<h2 class="section-title">Sponsor & Media Partner</h2>
+<h2 data-aos="fade-up">Sponsor & Media Partner</h2>
 
 <div class="sponsor-grid">
 
-<img src="logo1.png">
-<img src="logo2.png">
-<img src="logo3.png">
-<img src="logo4.png">
-<img src="logo5.png">
+<img src="assets/sponsor1.png" data-aos="zoom-in">
+<img src="assets/sponsor2.png" data-aos="zoom-in">
+<img src="assets/sponsor3.png" data-aos="zoom-in">
+<img src="assets/sponsor4.png" data-aos="zoom-in">
 
 </div>
 
@@ -424,31 +165,29 @@ Kompetisi esai ilmiah nasional bagi mahasiswa dan siswa SMA/SMK.
 
 <!-- CONTACT -->
 
-<section class="section" id="contact">
+<section id="contact">
 
-<h2 class="section-title">Contact Person</h2>
+<h2 data-aos="fade-up">Contact Person</h2>
 
 <div class="contact-grid">
 
-<div class="contact-card">
+<div class="contact-card" data-aos="fade-right">
 
 <h3>PSO</h3>
+
 <p>Rozan</p>
 
-<a class="btn-wa" href="https://wa.me/6282334827208">
-Chat Rozan
-</a>
+<a href="https://wa.me/6282334827208">Chat</a>
 
 </div>
 
-<div class="contact-card">
+<div class="contact-card" data-aos="fade-left">
 
 <h3>PSEC</h3>
+
 <p>Wahid</p>
 
-<a class="btn-wa" href="#">
-Chat Wahid
-</a>
+<a href="#">Chat</a>
 
 </div>
 
@@ -456,17 +195,9 @@ Chat Wahid
 
 </section>
 
-<script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-function openModal(){
-document.getElementById("guidebookModal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("guidebookModal").style.display="none";
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
