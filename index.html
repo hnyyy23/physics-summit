@@ -1,73 +1,18 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Physics Summit ITS</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Physics Summit</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
-/* PALETTE
-Primrose Garden #F297A0
-Pinktone #F9D0CE
-Lime Lollipop #B6BB79
-Yucca White #F3EBD8
-*/
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
 body{
+font-family:Arial;
+margin:0;
 background:#F9D0CE;
 color:#333;
-overflow-x:hidden;
-}
-
-/* PATTERN BACKGROUND */
-
-.pattern{
-position:fixed;
-width:100%;
-height:100%;
-background-image:
-radial-gradient(circle at 20% 20%, #F297A020 2px, transparent 2px),
-radial-gradient(circle at 80% 60%, #B6BB7920 2px, transparent 2px),
-radial-gradient(circle at 40% 80%, #F297A020 2px, transparent 2px);
-background-size:120px 120px;
-z-index:-3;
-}
-
-/* DECORATIVE SHAPES */
-
-.shape{
-position:absolute;
-border-radius:50%;
-filter:blur(80px);
-z-index:-2;
-}
-
-.shape1{
-background:#F297A0;
-width:250px;
-height:250px;
-top:-80px;
-left:-80px;
-opacity:.5;
-}
-
-.shape2{
-background:#B6BB79;
-width:300px;
-height:300px;
-bottom:-120px;
-right:-100px;
-opacity:.4;
 }
 
 /* NAVBAR */
@@ -75,217 +20,127 @@ opacity:.4;
 .navbar{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:20px 8%;
+padding:20px 10%;
 background:#F297A0;
 color:white;
-position:fixed;
-width:100%;
-z-index:100;
+position:sticky;
+top:0;
 }
 
-.menu a{
-margin-left:25px;
-text-decoration:none;
+.navbar a{
 color:white;
-}
-
-.menu a:hover{
-color:#B6BB79;
+text-decoration:none;
+margin-left:20px;
 }
 
 /* HERO */
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:20px;
+padding:120px 20px;
 background:#F3EBD8;
 }
 
 .hero h1{
-font-size:60px;
+font-size:55px;
 color:#F297A0;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:650px;
-line-height:1.7;
-margin-bottom:30px;
-}
-
-/* ATOM ANIMATION */
-
-.atom{
-position:relative;
-width:120px;
-height:120px;
-margin-bottom:25px;
-}
-
-.nucleus{
-width:25px;
-height:25px;
-background:#F297A0;
-border-radius:50%;
-position:absolute;
-top:47px;
-left:47px;
-}
-
-.orbit{
-position:absolute;
-width:120px;
-height:120px;
-border:2px solid #B6BB79;
-border-radius:50%;
-animation:spin 6s linear infinite;
-}
-
-.electron{
-width:10px;
-height:10px;
-background:#B6BB79;
-border-radius:50%;
-position:absolute;
-top:-5px;
-left:55px;
-}
-
-@keyframes spin{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
-}
-
-/* BUTTON */
-
-.button{
-background:#F297A0;
-color:white;
-border:none;
-padding:14px 32px;
-border-radius:30px;
-cursor:pointer;
-}
-
-.button:hover{
-background:#B6BB79;
 }
 
 /* SECTION */
 
 .section{
-padding:100px 10%;
+padding:80px 10%;
 }
 
 .section-title{
 text-align:center;
-font-size:40px;
-margin-bottom:50px;
+font-size:36px;
+margin-bottom:40px;
 color:#F297A0;
 }
 
-/* CARD */
+/* ABOUT */
 
-.card{
-background:#F3EBD8;
-padding:30px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+.about-text{
+max-width:700px;
+margin:auto;
+text-align:center;
+margin-bottom:40px;
+line-height:1.6;
 }
 
-/* TIMELINE */
+/* GALLERY */
 
-.timeline{
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
+gap:20px;
 }
 
-/* COMPETITION */
-
-.competition{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+.gallery img{
+width:100%;
+border-radius:15px;
 }
 
-.comp-card{
-background:#F3EBD8;
-padding:30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 6px 15px rgba(0,0,0,.1);
-}
+/* KOMPETISI */
 
-.btn-daftar{
-display:inline-block;
-margin-top:15px;
-padding:10px 22px;
-background:#F297A0;
-color:white;
-border-radius:25px;
-text-decoration:none;
-}
-
-.btn-daftar:hover{
-background:#B6BB79;
-}
-
-/* STUDENT AMBASSADOR */
-
-.ambassador{
+.comp-container{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:40px;
 }
 
-.amb-card{
+.comp-card{
 background:#F3EBD8;
-padding:30px;
-border-radius:18px;
-}
-
-/* BUTTONS */
-
-.amb-btn{
+padding:20px;
+border-radius:20px;
 text-align:center;
-margin-top:40px;
 }
 
-.btn-lomba{
+.comp-card img{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+/* MERCH */
+
+.merch-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.merch-container img{
+width:100%;
+border-radius:20px;
+}
+
+.btn-merch{
 background:#F297A0;
 color:white;
-padding:12px 28px;
-border-radius:30px;
-margin-right:20px;
+padding:12px 25px;
+border-radius:25px;
 text-decoration:none;
+display:inline-block;
+margin-top:15px;
 }
 
-.btn-sa{
-background:#B6BB79;
-color:white;
-padding:12px 28px;
-border-radius:30px;
-text-decoration:none;
+/* CONTACT */
+
+.contact-box{
+text-align:center;
 }
 
-/* WHATSAPP */
-
-.wa{
-position:fixed;
-bottom:25px;
-right:25px;
+.btn-wa{
 background:#25D366;
 color:white;
-padding:14px 20px;
-border-radius:40px;
+padding:12px 25px;
+border-radius:25px;
 text-decoration:none;
+display:inline-block;
+margin-top:20px;
 }
 
 </style>
@@ -294,173 +149,153 @@ text-decoration:none;
 
 <body>
 
-<div class="pattern"></div>
-<div class="shape shape1"></div>
-<div class="shape shape2"></div>
-
 <!-- NAVBAR -->
 
 <div class="navbar">
 
 <div><b>Physics Summit</b></div>
 
-<div class="menu">
-<a href="#">Home</a>
+<div>
 <a href="#about">About</a>
-<a href="#timeline">Timeline</a>
 <a href="#competition">Kompetisi</a>
-<a href="#ambassador">Ambassador</a>
+<a href="#merch">Merchandise</a>
+<a href="#contact">Contact Person</a>
 </div>
 
 </div>
+
 
 <!-- HERO -->
 
 <div class="hero">
 
-<div class="atom">
-<div class="orbit">
-<div class="electron"></div>
-</div>
-<div class="nucleus"></div>
-</div>
-
-<h1>11TH PHYSICS SUMMIT</h1>
-
-<p>
-Physics Summit merupakan event tahunan yang diselenggarakan oleh
-Departemen Fisika ITS untuk mengembangkan potensi generasi muda
-melalui kompetisi, inovasi, dan kolaborasi di bidang fisika.
-</p>
-
-<button class="button">Register Now</button>
+<h1>11th Physics Summit</h1>
 
 </div>
+
 
 <!-- ABOUT -->
 
-<div class="section" id="about">
+<section class="section" id="about">
 
-<h2 class="section-title">Tentang Physics Summit</h2>
+<h2 class="section-title">About Physics Summit</h2>
 
-<div class="card">
-
-Physics Summit merupakan big event yang diselenggarakan oleh
+<p class="about-text">
+Physics Summit merupakan event tahunan yang diselenggarakan oleh
 Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-Acara ini terdiri dari Physics Olympiad, Physics Summit Education
-Competition (PSEC), serta program Student Ambassador.
+Kegiatan ini bertujuan untuk memperkenalkan dunia fisika kepada
+generasi muda serta menjadi wadah bagi siswa dan mahasiswa untuk
+mengembangkan potensi akademik dan kreativitas dalam bidang sains.
+</p>
+
+<div class="gallery">
+
+<img src="dokumentasi1.jpg">
+<img src="dokumentasi2.jpg">
+<img src="dokumentasi3.jpg">
+<img src="dokumentasi4.jpg">
 
 </div>
 
-</div>
+</section>
 
-<!-- TIMELINE -->
-
-<div class="section" id="timeline">
-
-<h2 class="section-title">Timeline Event</h2>
-
-<div class="timeline">
-
-<div class="card"><h3>1 Mei</h3>Pembukaan Pendaftaran</div>
-
-<div class="card"><h3>20 Juni</h3>Penutupan Pendaftaran</div>
-
-<div class="card"><h3>5 Juli</h3>Penyisihan</div>
-
-<div class="card"><h3>20 Juli</h3>Semifinal</div>
-
-<div class="card"><h3>5 Agustus</h3>Grand Final</div>
-
-</div>
-
-</div>
 
 <!-- KOMPETISI -->
 
-<div class="section" id="competition">
+<section class="section" id="competition">
 
 <h2 class="section-title">Kompetisi</h2>
 
-<div class="competition">
+<div class="comp-container">
 
 <div class="comp-card">
 
-<h3>Physics Olympiad</h3>
+<img src="poster-pso.jpg">
 
-<p>Kompetisi olimpiade fisika untuk siswa SMA/SMK.</p>
+<h3>Physics Summit Olympiad (PSO)</h3>
 
-<a class="btn-daftar" href="#">Daftar Physics Olympiad</a>
+<p>
+Physics Summit Olympiad merupakan kompetisi olimpiade fisika tingkat
+nasional yang diperuntukkan bagi siswa SMA/SMK sederajat di seluruh
+Indonesia.
+</p>
 
 </div>
 
+
 <div class="comp-card">
+
+<img src="poster-psec.jpg">
 
 <h3>PSEC</h3>
 
-<p>Physics Summit Education Competition berbasis eksperimen.</p>
-
-<a class="btn-daftar" href="#">Daftar PSEC</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- STUDENT AMBASSADOR -->
-
-<div class="section" id="ambassador">
-
-<h2 class="section-title">Student Ambassador</h2>
-
-<div class="ambassador">
-
-<div class="amb-card">
-
-<h3>Goals</h3>
-
-<ul>
-
-<li>Memperkenalkan Departemen Fisika ITS kepada masyarakat.</li>
-
-<li>Membangun jejaring akademik lintas kampus.</li>
-
-<li>Mengembangkan kemampuan komunikasi mahasiswa.</li>
-
-</ul>
-
-</div>
-
-<div class="amb-card">
-
-<h3>Jobdesk</h3>
-
-<ol>
-
-<li>Menyebarluaskan informasi Physics Summit.</li>
-
-<li>Membuat konten kreatif mengenai Physics Summit.</li>
-
-<li>Melakukan publikasi kompetisi melalui kode referral.</li>
-
-</ol>
+<p>
+Physics Summit Essay Competition merupakan kompetisi esai ilmiah
+yang ditujukan bagi mahasiswa serta siswa SMA/SMK dari seluruh
+Indonesia.
+</p>
 
 </div>
 
 </div>
 
-<div class="amb-btn">
+</section>
 
-<a class="btn-lomba" href="#">Daftar Lomba</a>
 
-<a class="btn-sa" href="#">Daftar Student Ambassador</a>
+<!-- MERCH -->
+
+<section class="section" id="merch">
+
+<h2 class="section-title">Merchandise</h2>
+
+<div class="merch-container">
+
+<img src="merch.jpg">
+
+<div>
+
+<p>
+Physics Summit menyediakan berbagai merchandise eksklusif seperti
+gantungan kunci, keystrap, mug, pin, kipas, dan berbagai item
+menarik lainnya dengan desain khas Physics Summit.
+</p>
+
+<a href="https://its.id/m/PreOrderMerchPhysicsSummit2025"
+class="btn-merch"
+target="_blank">
+
+Pre Order Merchandise
+
+</a>
 
 </div>
 
 </div>
 
-<a class="wa" href="https://wa.me/6281362192288">Contact Person</a>
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<h2 class="section-title">Contact Person</h2>
+
+<div class="contact-box">
+
+<p>Sandy : 081977966611</p>
+<p>Rozan : 082334827208</p>
+
+<a href="https://wa.me/6281362192288"
+class="btn-wa">
+
+Chat via WhatsApp
+
+</a>
+
+</div>
+
+</section>
 
 </body>
 </html>
