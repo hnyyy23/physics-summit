@@ -234,7 +234,8 @@
     <section class="input-card">
       <label for="nrp">NRP</label>
       <input id="nrp" type="text" placeholder="Contoh: 5024XXXXXX" autocomplete="off" />
-      <button onclick="cekPengumuman()">Cek Hasil Seleksi</button>
+      <button id="cekButton" onclick="cekPengumuman()">Cek Hasil Seleksi</button>
+      <p id="loadStatus" style="margin-top:12px;color:#64748b;font-size:14px;line-height:1.5;">Sedang memuat data peserta...</p>
     </section>
 
     <section id="result" class="result">
@@ -349,15 +350,35 @@
       return header.trim().toLowerCase();
     }
 
+    function bersihkanNRP(value) {
+      return String(value || "").trim().replace(/\.0$/, "");
+    }
+
     async function loadDataPeserta() {
+      const status = document.getElementById("loadStatus");
+      const button = document.getElementById("cekButton");
+      button.disabled = true;
+      button.textContent = "Memuat Data...";
+
       try {
-        if (CSV_URL === "PASTE_LINK_CSV_GOOGLE_SHEETS_DI_SINI") {
-          throw new Error("Link CSV belum diisi.");
+        const response = await fetch(CSV_URL);
+
+        if (!response.ok) {
+          throw new Error("Spreadsheet tidak bisa diakses. Pastikan aksesnya Anyone with the link - Viewer.");
         }
 
-        const response = await fetch(CSV_URL);
         const csvText = await response.text();
-        const rows = parseCSV(csvText);
+
+        if (csvText.toLowerCase().includes("<!doctype html") || csvText.toLowerCase().includes("<html")) {
+          throw new Error("Link spreadsheet belum berupa CSV publik. Gunakan Publish to web sebagai CSV.");
+        }
+
+        const rows = parseCSV(csvText).filter(row => row.some(cell => cell.trim() !== ""));
+
+        if (rows.length < 2) {
+          throw new Error("Data spreadsheet masih kosong atau header belum terbaca.");
+        }
+
         const headers = rows[0].map(normalisasiHeader);
 
         rows.slice(1).forEach((row) => {
@@ -366,30 +387,50 @@
             item[header] = row[index] || "";
           });
 
-          const nrp = item.nrp;
+          const nrp = bersihkanNRP(item.nrp);
           if (nrp) {
             dataPeserta[nrp] = {
-              nama: item.nama,
-              pos: item.pos,
-              hariTanggal: item.jadwal,
-              pukul: item.jam,
+              nama: item.nama || "-",
+              pos: item.pos || "-",
+              hariTanggal: item.jadwal || "-",
+              pukul: item.jam || "-",
               denah: item.denah || DENAH_DEFAULT,
-              cp: item.cp
+              cp: item.cp || "Silakan hubungi panitia."
             };
           }
         });
+
+        const jumlahData = Object.keys(dataPeserta).length;
+
+        if (jumlahData === 0) {
+          throw new Error("Kolom NRP belum terbaca. Pastikan header kolom bernama NRP.");
+        }
+
+        status.textContent = `Data berhasil dimuat. Total ${jumlahData} peserta terdaftar.`;
+        status.style.color = "#166534";
+        button.disabled = false;
+        button.textContent = "Cek Hasil Seleksi";
       } catch (error) {
         console.error(error);
-        document.getElementById("error").style.display = "block";
-        document.getElementById("error").textContent = "Data peserta belum berhasil dimuat. Pastikan link CSV Google Sheets sudah benar dan sudah dipublish.";
+        status.textContent = error.message;
+        status.style.color = "#991b1b";
+        button.disabled = false;
+        button.textContent = "Cek Hasil Seleksi";
       }
     }
 
     function cekPengumuman() {
-      const input = document.getElementById("nrp").value.trim();
+      const input = bersihkanNRP(document.getElementById("nrp").value);
       const peserta = dataPeserta[input];
       const result = document.getElementById("result");
       const error = document.getElementById("error");
+
+      if (!input) {
+        result.style.display = "none";
+        error.style.display = "block";
+        error.textContent = "Masukkan NRP terlebih dahulu.";
+        return;
+      }
 
       if (!peserta) {
         result.style.display = "none";
@@ -401,7 +442,7 @@
       document.getElementById("namaPeserta").textContent = peserta.nama;
       document.getElementById("nrpPeserta").textContent = input;
       document.getElementById("posPeserta").textContent = peserta.pos;
-      document.getElementById("waktuPeserta").textContent = peserta.pukul + " WIB";
+      document.getElementById("waktuPeserta").textContent = String(peserta.pukul).includes("WIB") ? peserta.pukul : peserta.pukul + " WIB";
       document.getElementById("tanggalPeserta").textContent = peserta.hariTanggal;
       document.getElementById("cpPeserta").textContent = peserta.cp;
       document.getElementById("denahLink").href = peserta.denah;
@@ -413,7 +454,7 @@
 
     loadDataPeserta();
 
-    document.getElementById("nrp").addEventListener("keydown", function(event) {
+    document.getElementById("nrp").addEventList("keydown", function(event) {
       if (event.key === "Enter") {
         cekPengumuman();
       }
