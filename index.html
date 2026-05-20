@@ -1,203 +1,423 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumuman Staff Partner 11th Physics Summit</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
 
-<meta charset="UTF-8">
-<title>Physics Summit</title>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #10172a, #1e3a8a, #38bdf8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      color: #0f172a;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .container {
+      width: 100%;
+      max-width: 760px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+      text-align: center;
+    }
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
 
+    h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.15;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .input-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 16px;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 14px;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 15px 18px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      text-align: left;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .result-card {
+      border-radius: 24px;
+      padding: 26px;
+      border: 1px solid #bfdbfe;
+      background: linear-gradient(180deg, #eff6ff, #ffffff);
+    }
+
+    .success-title {
+      font-size: 28px;
+      color: #166534;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 17px;
+      line-height: 1.7;
+      text-align: center;
+      color: #334155;
+      margin-bottom: 22px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .info-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .info-box span {
+      display: block;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .info-box strong {
+      color: #0f172a;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #0f172a;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-weight: 800;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #475569;
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .error {
+      display: none;
+      margin-top: 18px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 15px;
+      border-radius: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 22px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 26px 20px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<h2>Physics Summit</h2>
-
-<div>
-<a href="#about">About</a>
-<a href="#history">History</a>
-<a href="#competition">Competition</a>
-<a href="#sponsor">Sponsor</a>
-<a href="#contact">Contact</a>
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div data-aos="fade-up">
-
-<h1>Physics Summit 11th</h1>
-
-<p>Empowering the Future Through Physics</p>
-
-</div>
-
-<div class="atom-animation"></div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" data-aos="fade-right">
-
-<h2>About Physics Summit</h2>
-
-<p>
-
-Physics Summit merupakan big event yang diselenggarakan oleh
-Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS).
-
-Event ini terdiri dari dua kompetisi utama yaitu
-Physics Summit Olympiad (PSO) dan
-Physics Summit Essay Competition (PSEC).
-
-Selain itu terdapat program Student Ambassador (SA).
-
-</p>
-
-</section>
-
-<!-- HISTORY -->
-
-<section id="history">
-
-<h2 data-aos="fade-up">Perjalanan Physics Summit</h2>
-
-<div class="timeline">
-
-<div class="card" data-aos="zoom-in">
-<h3>2011</h3>
-<p>First Gebyar</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
-<h3>2014</h3>
-<p>Berganti nama menjadi Physics Summit</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
-<h3>2018</h3>
-<p>Penetapan Dirut PS</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
-<h3>2020</h3>
-<p>Vakum karena Covid</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
-<h3>2024</h3>
-<p>Mulai lagi</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
-<h3>2025</h3>
-<p>Physics Summit 10th</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- COMPETITION -->
-
-<section id="competition">
-
-<h2 data-aos="fade-up">Competitions</h2>
-
-<div class="competition-grid">
-
-<div class="competition-card" data-aos="flip-left">
-
-<h3>PSO</h3>
-
-<p>
-National Physics Olympiad competition
-for high school students.
-</p>
-
-<a class="btn">Guidebook</a>
-
-</div>
-
-<div class="competition-card" data-aos="flip-left">
-
-<h3>PSEC</h3>
-
-<p>
-National Scientific Essay Competition
-for university and high school students.
-</p>
-
-<a class="btn">Guidebook</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SPONSOR -->
-
-<section id="sponsor">
-
-<h2 data-aos="fade-up">Sponsor & Media Partner</h2>
-
-<div class="sponsor-grid">
-
-<img src="assets/sponsor1.png" data-aos="zoom-in">
-<img src="assets/sponsor2.png" data-aos="zoom-in">
-<img src="assets/sponsor3.png" data-aos="zoom-in">
-<img src="assets/sponsor4.png" data-aos="zoom-in">
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 data-aos="fade-up">Contact Person</h2>
-
-<div class="contact-grid">
-
-<div class="contact-card" data-aos="fade-right">
-
-<h3>PSO</h3>
-
-<p>Rozan</p>
-
-<a href="https://wa.me/6282334827208">Chat</a>
-
-</div>
-
-<div class="contact-card" data-aos="fade-left">
-
-<h3>PSEC</h3>
-
-<p>Wahid</p>
-
-<a href="#">Chat</a>
-
-</div>
-
-</div>
-
-</section>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script src="script.js"></script>
-
+  <main class="container">
+    <div class="badge">11th Physics Summit</div>
+    <h1>Pengumuman Staff Partner</h1>
+    <p class="subtitle">
+      Masukkan NRP kamu untuk melihat hasil seleksi berkas Staff Partner 11th Physics Summit.
+    </p>
+
+    <section class="input-card">
+      <label for="nrp">NRP</label>
+      <input id="nrp" type="text" placeholder="Contoh: 5024XXXXXX" autocomplete="off" />
+      <button onclick="cekPengumuman()">Cek Hasil Seleksi</button>
+    </section>
+
+    <section id="result" class="result">
+      <div class="result-card">
+        <h2 class="success-title">Selamat!</h2>
+        <p class="message">
+          Anda dinyatakan <strong>lolos seleksi berkas Staff Partner 11th Physics Summit</strong>
+          dan berhak melanjutkan ke tahap seleksi berikutnya.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <span>Nama</span>
+            <strong id="namaPeserta">-</strong>
+          </div>
+          <div class="info-box">
+            <span>NRP</span>
+            <strong id="nrpPeserta">-</strong>
+          </div>
+          <div class="info-box">
+            <span>Pos Seleksi</span>
+            <strong id="posPeserta">-</strong>
+          </div>
+          <div class="info-box">
+            <span>Waktu</span>
+            <strong id="waktuPeserta">-</strong>
+          </div>
+          <div class="info-box">
+            <span>Hari/Tanggal</span>
+            <strong id="tanggalPeserta">-</strong>
+          </div>
+          <div class="info-box">
+            <span>Contact Person</span>
+            <strong id="cpPeserta">-</strong>
+          </div>
+        </div>
+
+        <a id="denahLink" class="map-link" href="#" target="_blank" rel="noopener">
+          Lihat Denah Pos Seleksi
+        </a>
+
+        <p class="note">
+          Apabila berhalangan hadir pada seleksi lanjutan, peserta wajib menghubungi contact person yang tertera paling lambat tanggal 22 pukul 21.00 WIB.
+        </p>
+      </div>
+    </section>
+
+    <div id="error" class="error">
+      NRP tidak ditemukan. Pastikan NRP yang dimasukkan sudah benar atau hubungi panitia.
+    </div>
+
+    <footer>
+      Physics Summit &copy; 2026
+    </footer>
+  </main>
+
+  <script>
+    // EDIT LINK CSV GOOGLE SHEETS DI SINI
+    // Cara dapat link:
+    // Google Sheets > File > Share > Publish to web > pilih CSV > Publish > copy link-nya.
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/1GJQ_hfuRdThg9cr55jB2jdgg0TMJqcM7tKHYr233Tok/export?format=csv&gid=0";
+
+    // Link denah default untuk semua peserta.
+    const DENAH_DEFAULT = "https://intip.in/petunjukpos";
+
+    let dataPeserta = {};
+
+    function parseCSV(text) {
+      const rows = [];
+      let current = "";
+      let row = [];
+      let insideQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const nextChar = text[i + 1];
+
+        if (char === '"' && insideQuotes && nextChar === '"') {
+          current += '"';
+          i++;
+        } else if (char === '"') {
+          insideQuotes = !insideQuotes;
+        } else if (char === ',' && !insideQuotes) {
+          row.push(current.trim());
+          current = "";
+        } else if ((char === '
+' || char === '
+') && !insideQuotes) {
+          if (current || row.length) {
+            row.push(current.trim());
+            rows.push(row);
+            row = [];
+            current = "";
+          }
+          if (char === '
+' && nextChar === '
+') i++;
+        } else {
+          current += char;
+        }
+      }
+
+      if (current || row.length) {
+        row.push(current.trim());
+        rows.push(row);
+      }
+
+      return rows;
+    }
+
+    function normalisasiHeader(header) {
+      return header.trim().toLowerCase();
+    }
+
+    async function loadDataPeserta() {
+      try {
+        if (CSV_URL === "PASTE_LINK_CSV_GOOGLE_SHEETS_DI_SINI") {
+          throw new Error("Link CSV belum diisi.");
+        }
+
+        const response = await fetch(CSV_URL);
+        const csvText = await response.text();
+        const rows = parseCSV(csvText);
+        const headers = rows[0].map(normalisasiHeader);
+
+        rows.slice(1).forEach((row) => {
+          const item = {};
+          headers.forEach((header, index) => {
+            item[header] = row[index] || "";
+          });
+
+          const nrp = item.nrp;
+          if (nrp) {
+            dataPeserta[nrp] = {
+              nama: item.nama,
+              pos: item.pos,
+              hariTanggal: item.jadwal,
+              pukul: item.jam,
+              denah: item.denah || DENAH_DEFAULT,
+              cp: item.cp
+            };
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        document.getElementById("error").style.display = "block";
+        document.getElementById("error").textContent = "Data peserta belum berhasil dimuat. Pastikan link CSV Google Sheets sudah benar dan sudah dipublish.";
+      }
+    }
+
+    function cekPengumuman() {
+      const input = document.getElementById("nrp").value.trim();
+      const peserta = dataPeserta[input];
+      const result = document.getElementById("result");
+      const error = document.getElementById("error");
+
+      if (!peserta) {
+        result.style.display = "none";
+        error.style.display = "block";
+        error.textContent = "NRP tidak ditemukan. Pastikan NRP yang dimasukkan sudah benar atau hubungi panitia.";
+        return;
+      }
+
+      document.getElementById("namaPeserta").textContent = peserta.nama;
+      document.getElementById("nrpPeserta").textContent = input;
+      document.getElementById("posPeserta").textContent = peserta.pos;
+      document.getElementById("waktuPeserta").textContent = peserta.pukul + " WIB";
+      document.getElementById("tanggalPeserta").textContent = peserta.hariTanggal;
+      document.getElementById("cpPeserta").textContent = peserta.cp;
+      document.getElementById("denahLink").href = peserta.denah;
+
+      error.style.display = "none";
+      result.style.display = "block";
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    loadDataPeserta();
+
+    document.getElementById("nrp").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        cekPengumuman();
+      }
+    });
+  </script>
 </body>
 </html>
