@@ -296,7 +296,7 @@
     // EDIT LINK CSV GOOGLE SHEETS DI SINI
     // Cara dapat link:
     // Google Sheets > File > Share > Publish to web > pilih CSV > Publish > copy link-nya.
-    const CSV_URL = "https://docs.google.com/spreadsheets/d/1GJQ_hfuRdThg9cr55jB2jdgg0TMJqcM7tKHYr233Tok/export?format=csv&gid=0";
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/1GJQ_hfuRdThg9cr55jB2jdgg0TMJqcM7tKHYr233Tok/export?format=csv&gid=1686907456";
 
     // Link denah default untuk semua peserta.
     const DENAH_DEFAULT = "https://intip.in/petunjukpos";
@@ -454,7 +454,7 @@
 
     loadDataPeserta();
 
-    document.getElementById("nrp").addEventList("keydown", function(event) {
+    document.getElementById("nrp").addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         cekPengumuman();
       }
